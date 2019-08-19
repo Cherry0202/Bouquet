@@ -1,0 +1,8 @@
+/* 全体で共通のCSSはこのファイルに記述する */
+body{
+    background-color: #DADADA;
+}
+​
+.main.container{/* ドットの間には空白を開けない */
+    margin-top: 30px;/* 上の余白を作る */
+}

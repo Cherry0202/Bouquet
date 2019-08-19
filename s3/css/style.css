@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:300&display=swap&subset=japanese');
+
+
+body {
+        background-image: url("../src/wedding.png") !important;
+        background-size: cover !important;
+        overflow: auto;
+        /* margin: 40px 10px;
+        padding: 0;
+        font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+        font-size: 14px; */
+}
+#calendar {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: #fff;
+}
+
+html > body {
+        font-family: 'Noto Sans Japanese','Segoe UI','Verdana','Helvetica','Arial', sans-serif;
+        /* background-color: #FFEDB3; */
+        /* background-image: image(); */
+}
+#B{
+    /* width:250px; */
+    min-height:507px;
+    /* height:500px; */
+    width:200px;
+    margin-bottom:60px;
+    background-color:#fff5ee;
+    float:left;
+    margin-top:30px;
+
+}
+.list{
+    padding-left:20px;
+
+}
+.midashi{
+    margin: 40px;
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Noto Sans Japanese' sans-serif;
+}
+.midashi2{
+    margin: 30px;
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Noto Sans Japanese' sans-serif;
+    text-align: right;
+}
+.komidashi{
+    font-family: 'Noto Sans Japanese' sans-serif;
+    background-color: #f8dbc6;
+    height:20px;
+    font-weight: 800;
+
+}
+.count{
+    margin-top: 60px;
+    font-size: 25px;
+    font-family: 'Noto Sans Japanese' sans-serif;
+}
+.count2{
+    margin-top: 10px;
+    font-size: 15px;
+    font-family: 'Noto Sans Japanese' sans-serif;
+}
+.count3{
+    margin-top: 20px;
+    font-size: 40px;
+    font-family: 'Noto Sans Japanese' sans-serif;
+    text-align: center;
+}
+
+.fc-left h2 {
+        font-weight: normal;
+}
+.fc-widget-header th {
+        background-color: #f8dbc6;
+}
+th.fc-day-header, th.fc-widget-header {
+        color: #550000;
+        font-size: 14px;
+        font-weight: normal;
+}
+.fc-sun > span {
+        color: #cd384b;
+
+}
+.fc-sat > span {
+        color: #415ea6;
+}
+td.fc-sun {
+        background-color: #fae6e3;
+}
+td.fc-sat {
+        background-color: #dceef7;
+}
+.fc-unthemed .fc-content,
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-list-heading td,
+.fc-unthemed .fc-list-view,
+.fc-unthemed .fc-popover,
+.fc-unthemed .fc-row,
+.fc-unthemed tbody,
+.fc-unthemed td,
+.fc-unthemed th,
+.fc-unthemed thead {
+        border-color: #d1ccd9;
+}
+
+.fc-ltr .fc-basic-view .fc-day-top .fc-day-number {
+        float: left;
+}
+
+
+
+/* カレンダーページのメニューバー */
+#menu {
+  width: 1150px;
+  height: 45px;
+  padding: 10px;
+  margin: 60;
+  list-style-type: none;
+  background: #fdf5e6;
+}
+#menu li {
+  width: 20%;
+  float: left;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+#menu li a {
+  width: auto;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px 0;
+  text-decoration: none;
+  display: block;
+}
+#menu li a:hover {
+  background: #faebd7;
+}
+#nav {
+    list-style: none;
+    overflow: hidden;
+  }
+
+  #nav li {
+    width: 140px;
+    text-align: center;
+    background-color: #333;
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 2px;
+  }
+
+  #nav li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 20px;
+  }
+
+
+
+nav{
+    border-bottom: 1px solid #ccc;
+}
+nav ul{
+    display: table;
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+    text-align: center;
+}
+nav ul li{
+    display: table-cell;
+    min-width: 50px;
+    border-right: 1px solid #ccc;
+}
+nav ul li:first-child{
+    border-left: 1px solid #ccc;
+}
+nav ul li a{
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #aaa;
+}
+nav ul li a:hover{
+    background-color:#fae6e3;
+    border-bottom: 5px solid #fae6e3;
+}
+nav ul li.current{
+    font-weight: bold;
+}
+nav ul li.current a{
+    border-bottom: 5px solid #dceef7;
+    color: #dceef7;
+}
+
+/* .delete_b:hober{
+	width: 100%;
+	height: 100%;
+    background-color: #aaa !important;
+} */
+
+nav ul li button{
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    text-decoration: none;
+    color: grey !important;
+    background-color: white !important;
+}
+nav ul li button:hover{
+    background-color: #fae6e3 !important;
+    border-bottom: 5px solid #fae6e3 !important;
+}

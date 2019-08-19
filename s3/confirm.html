@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+      <link rel="icon" href="./src/favicon.ico">
+    <!-- 文字エンコードをUTF-8に指定 -->
+    <meta charset="utf-8">
+    <!-- レンダリングを最新に指定 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- 拡大を禁止 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>基本情報入力</title>
+
+    <!-- Semantic UI を読み込む -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <!-- Vue.js を読み込む -->
+    <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
+
+    <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.ui.calendar').calendar(
+                {
+                    type: 'date',
+                    formatter: {
+                        date: function (date) {
+                        var day = ('0' + date.getDate()).slice(-2);
+                        var month = ('0' + (date.getMonth() + 1)).slice(-2);
+                        var year = date.getFullYear();
+                        return year + '/' + month + '/' + day;
+                        }
+                    },
+                    text: {
+                        days: [
+                            "日",
+                            "月",
+                            "火",
+                            "水",
+                            "木",
+                            "金",
+                            "土"
+                        ],
+                        months: [
+                            "1月",
+                            "2月",
+                            "3月",
+                            "4月",
+                            "5月",
+                            "6月",
+                            "7月",
+                            "8月",
+                            "9月",
+                            "10月",
+                            "11月",
+                            "12月"
+                        ],
+                        monthsShort:  [
+                            "1月",
+                            "2月",
+                            "3月",
+                            "4月",
+                            "5月",
+                            "6月",
+                            "7月",
+                            "8月",
+                            "9月",
+                            "10月",
+                            "11月",
+                            "12月"
+                        ],
+                        today: '今日',
+                        now: 'Now',
+                        am: 'AM',
+                        pm: 'PM'
+                    },
+                }
+            );
+        });
+    </script>
+
+    <!-- 共通のCSSファイルを読み込む -->
+    <link rel="stylesheet" href="./css/confirm.css">
+    <link rel="stylesheet" href="./common/style.css">
+  </head>
+  <body>
+    <!-- Vue.jsで読み込む -->
+    <h1>BOUQUET</h1>
+    <div id="app">
+        <!-- <common-menu current="confirm"></common-menu> -->
+        <div class="ui main container">
+            <div class="ui stackable grid">
+                <div class="four wide column"></div>
+                <div class="eight wide column">
+                    <div class="ui segment">
+                        <form class="ui large form" v-on:submit.prevent="submit">
+                            <!-- v-if="mode==login" -->
+                            <h2>Hello</h2>
+
+                            <div class="ui grid two column">
+                                <div class="column five wide right aligned hw">身長</div>
+                                <div class="column eight wide field">
+                                    <div class="ui input right icon">
+                                        <i class="icon input-icon">cm</i>
+                                        <input type="text" v-model="user.height">
+                                    </div>
+                                </div>
+                                <div class="column three wide field"></div>
+
+                                <div class="column five wide right aligned hw">体重</div>
+                                <div class="column eight wide field">
+                                    <div class="ui input right icon">
+                                        <i class="icon input-icon">kg</i>
+                                        <input type="text" v-model="user.weight">
+                                    </div>
+                                </div>
+                                <div class="column three wide field"></div>
+
+                                <!-- <div class="column four wide left aligned hw"> -->
+                                <div class="column five wide right aligned hw">気になる部位</div>
+                                <div class="column eight wide field">
+                                    <select name="example1" class="ui dropdown" v-model="user.part">
+                                        <option disabled selected value>選択して下さい</option>
+                                        <option value="二の腕">二の腕</option>
+                                        <option value="背中">背中</option>
+                                        <option value="ウエスト">ウエスト</option>
+                                        <option value="ヒップ">ヒップ</option>
+                                        <option value="顔">顔</option>
+                                    </select>
+                                </div>
+                            </div>
+                                <!-- <div class="column twelve wide field ui input"><input type="text"></div>
+                            </div><br> -->
+                            <br><br>
+
+                            <!-- <p>挙式日</p> -->
+                            <div class="ui two wide column grid right aligned marriage">
+                                <div class="column five wide right aligned hw">挙式日</div>
+                                <div class="column eight wide field ui input left aligned">
+                                    <div class="field ui calendar required">
+                                        <div class="ui input left icon">
+                                            <i class="calendar icon"></i>
+                                            <input type="text" name="date" placeholder="日付" v-model="user_date">
+                                        </div>
+                                    </div>
+                                </div>
+                                    <!-- <div class="field column ui input right aligned">挙式日
+                                    </div><br> -->
+                                        <!-- <div class="field column ui input">
+                                        <input type="text" class=" width85" />年
+                                    </div>
+                                    <div class="field column ui input">
+                                        <input type="text" class=" width85" />月
+                                    </div>
+                                    <div class="field column ui input ">
+                                        <input type="text" class=" width85" />日
+                                    </div> -->
+                            </div>
+
+
+                            <div class="ui grid two column">
+                                <div class="column five wide right aligned">目標体重</div>
+                                <div class="column eight wide field ui input">
+                                    <div class="ui input right icon">
+                                        <i class="icon input-icon">kg</i>
+                                        <input type="text" v-model="user.best_weight">
+                                    </div>
+<!--
+                                    <div class="two fields">
+                                        <div class="field">
+                                            <input type="text">
+                                        </div>
+                                        <div class="field">
+                                            kg
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+
+                            <!--  v-if="mode==login" -->
+                            <!-- <div class="field">
+                                <p>体重</p>
+                                <input type="text">
+                            </div>
+                            <div class="field">
+                                <p>気になる部位</p>
+                                <input type="text">
+                            </div>
+                            -->
+                            <!-- <div class="field">
+                                <p>挙式日</p>
+                                <div class="ui three columns grid">
+                                    <div class="field year">
+                                        <input type="text">年
+                                    </div>
+                                    <div class="field month">
+                                        <input type="text">月
+                                    </div>
+                                    <div class="field day">
+                                        <input type="text">日
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="ui text-center">
+                                <button class="next" type="submit">
+                                    登録
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <!-- APIのURLを読み込むJavaScriptファイル -->
+    <script src="./common/config.js" charset="utf-8"></script>
+    <!-- 各ページで使うJavaScriptファイルはこの行より下で読み込む -->
+	<!-- <script src="./common/menu.js" charset="utf-8"></script> -->
+    <script src="./js/confirm.js" charset="utf-8"></script>
+  </body>
+</html>

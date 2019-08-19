@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="./src/favicon.ico">
+    <title>マイページ</title>
+    <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="css/fullcalendar.min.css" media="all" />
+    <link rel="stylesheet" href="css/style.css" media="all" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/moment.min.js"></script>
+    <script type="text/javascript" src="js/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="lang/ja.js"></script>
+    <script>
+        // ページ読み込み時の処理
+        $(document).ready(function() {
+
+            // カレンダーの設定
+            $('#calendar').fullCalendar({
+                height: 550,
+                lang: "ja",
+                selectable: true,
+                selectHelper: true,
+                select: function(start, end) {
+                    var title = prompt("予定タイトル:");
+                    var eventData;
+                    if (title) {
+                        eventData = {
+                            title: title,
+                            start: start,
+                            end: end
+                        };
+                        $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+                    }
+                    $('#calendar').fullCalendar('unselect');
+                },
+                editable: true,
+                eventLimit: true,
+            });
+        });
+
+        // var today = new Date();
+        // var timestamp = today.getTime();
+        // eventData1 = {
+        //     title: 'PPP',
+        //     start: timestamp,
+        //     end: timestamp*2
+        // };
+        // $('#calendar').fullCalendar('renderEvent', eventData1, true); // stick? = true
+        // editable: true,
+        // eventLimit: true,
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <common-menu current="login"></common-menu> -->
+        <div class="ui main container">
+            <div class="ui segment" v-model="users">
+                <!-- 基本的なコンテンツはここに記載する -->
+                <nav>
+                    <ul>
+                        <li class=”menu”><a href='column1.html'>二の腕</a></li>
+                        <li><a href='column2.html'>背中</a></li>
+                        <li><a href='column3.html'>ウエスト</a></li>
+                        <li><a href=column4.html>ヒップ</a></li>
+                        <li><a href=column4.html>顔</a></li>
+                        <li><a href=column5.html>有料コラム</a></li>
+                        <li><button class="ui primary white button delete_b" v-on:click="deleteUser">退会</button></li>
+                    </ul>
+                </nav>
+                <div class="midashi">
+                    {{users.user_name}}さんのスケジュール
+                </div>
+
+                <br>
+                <div class="midashi2">
+                    <!-- 結婚式まであと{{users.counting_days}}日 -->
+                    結婚式まであと{{users.wedding_count}}日
+                    <!-- 目標体重まであと〇キロ -->
+                </div>
+                <div id="side"></div>
+                <div class="ui grid">
+                    <div class="four wide column">
+                        <ul>
+                            <div id="B">
+                                <div class="komidashi">
+                                    ToDoリスト
+                                </div><br>
+                                <div class="list" >
+                                    <div class="ui checkbox">
+                                        <input type="checkbox" name="example">
+                                        <label>エステ</label>
+                                    </div>
+                                    <br><br>
+                                    <div class="ui checkbox">
+                                        <input type="checkbox" name="example">
+                                        <label>ホワイトニング</label>
+                                    </div>
+                                    <br><br>
+                                    <div class="ui checkbox">
+                                        <input type="checkbox" name="example">
+                                        <label>ネイル</label>
+                                    </div>
+                                    <br><br>
+                                    <div class="ui checkbox">
+                                        <input type="checkbox" name="example">
+                                        <label>マツエク</label>
+                                    </div>
+                                    <br><br>
+                                    <div class="ui checkbox">
+                                        <input type="checkbox" name="example">
+                                        <label>結婚式の招待状</label>
+                                    </div>
+                                    <div class="count">
+                                        目標体重まで<br>
+                                        <div class="count2">
+                                            あと<br>
+                                        </div>
+                                        <div class="count3">
+                                            {{users.div_weight}}kg
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="twelve wide column">
+                        <div id='calendar'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="./common/menu.js" charset="utf-8"></script> -->
+        <script src="./common/config.js" charset="utf-8"></script>
+        <script src="./js/calendar.js" charset="utf-8"></script>
+</body>
+
+</html>
