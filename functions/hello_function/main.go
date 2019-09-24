@@ -6,7 +6,7 @@ import (
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/awslabs/aws-lambda-go-api-proxy/gin"
+	ginadapter "github.com/awslabs/aws-lambda-go-api-proxy/gin"
 	"github.com/gin-gonic/gin"
 )
 
@@ -17,6 +17,9 @@ func init() {
 	log.Printf("Gin cold start")
 	r := gin.Default()
 	r.GET("/hello", func(c *gin.Context) {
+		// header
+		c.Header("Content-Type", "application/json; charset=utf-8")
+		c.Header("Access-Control-Allow-Origin", "*")
 		c.JSON(200, gin.H{
 			"message": "hello",
 		})
