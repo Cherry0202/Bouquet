@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go/aws"
+	//"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/awslabs/aws-lambda-go-api-proxy/gin"
 	"github.com/gin-gonic/gin"
@@ -100,7 +101,7 @@ func init() {
 			c.JSON(401, gin.H{
 				"message": "認証エラー" +
 					"既に存在しているIDです" +
-					"(b_bouquet_users)",
+					"(bouquet_users)",
 			})
 		}
 
@@ -111,7 +112,7 @@ func init() {
 			c.JSON(401, gin.H{
 				"message": "認証エラー" +
 					"既に存在しているIDです" +
-					"(b_bouquet_personal_data)",
+					"(bouquet_personal_data)",
 			})
 		}
 
@@ -122,7 +123,7 @@ func init() {
 			c.JSON(401, gin.H{
 				"message": "認証エラー" +
 					"既に存在しているIDです" +
-					"(b_bouquet_weight_log)",
+					"(bouquet_weight_log)",
 			})
 		}
 
@@ -133,7 +134,7 @@ func init() {
 			c.JSON(401, gin.H{
 				"message": "認証エラー" +
 					"既に存在しているIDです" +
-					"(b_bouquet_weight_log)",
+					"(bouquet_weight_log)",
 			})
 		}
 

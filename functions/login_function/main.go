@@ -39,7 +39,7 @@ func init() {
 	r.POST("/bouquet/user/login", func(c *gin.Context) {
 		c.BindJSON(&req)
 		// user table
-		table := db.Table("b_bouquet_users")
+		table := db.Table("bouquet_users")
 
 		u := User{
 			User_id:  req.User_id,
