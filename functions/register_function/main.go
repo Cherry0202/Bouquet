@@ -54,10 +54,10 @@ func init() {
 	r.POST("/bouquet/user", func(c *gin.Context) {
 		c.BindJSON(&req)
 		// user table
-		table := db.Table("b_bouquet_users")
-		table1 := db.Table("b_bouquet_personal_data")
-		table2 := db.Table("b_bouquet_weight_log")
-		table3 := db.Table("b_bouquet_calendar")
+		table := db.Table("bouquet_users")
+		table1 := db.Table("bouquet_personal_data")
+		table2 := db.Table("bouquet_weight_log")
+		table3 := db.Table("bouquet_calendar")
 
 		jst, _ := time.LoadLocation("Asia/Tokyo")
 
@@ -137,6 +137,7 @@ func init() {
 			})
 		}
 
+		//後にtokenを渡す処理に変更
 		// body
 		c.JSON(200, gin.H{
 			"user_id":   req.User_id,
