@@ -86,6 +86,8 @@ func init() {
 		c.Header("Content-Type", "application/json; charset=utf-8")
 		c.Header("Access-Control-Allow-Origin", "*")
 
+		//　以下並列処理で書き直す
+
 		if req.User_id == "" {
 			c.JSON(401, gin.H{
 				"message": "emailを入力してください",
