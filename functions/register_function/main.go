@@ -95,7 +95,7 @@ func init() {
 			})
 		}
 		//user
-		if err := table.Put(u).Run(); err != nil {
+		if err := table.Put(u).If("attribute_not_exists(ID)").Run(); err != nil {
 			fmt.Println("err")
 			//panic(err.Error())
 			c.JSON(401, gin.H{
@@ -106,7 +106,7 @@ func init() {
 		}
 
 		//Personal
-		if err := table1.Put(p); err != nil {
+		if err := table1.Put(p).If("attribute_not_exists(ID)").Run(); err != nil {
 			fmt.Println("err")
 			//panic(err.Error())
 			c.JSON(401, gin.H{
@@ -117,7 +117,7 @@ func init() {
 		}
 
 		//Log
-		if err := table2.Put(l).Run(); err != nil {
+		if err := table2.Put(l).If("attribute_not_exists(ID)").Run(); err != nil {
 			fmt.Println("err")
 			//panic(err.Error())
 			c.JSON(401, gin.H{
@@ -128,7 +128,7 @@ func init() {
 		}
 
 		//Log
-		if err := table3.Put(cc).Run(); err != nil {
+		if err := table3.Put(cc).If("attribute_not_exists(ID)").Run(); err != nil {
 			fmt.Println("err")
 			//panic(err.Error())
 			c.JSON(401, gin.H{
