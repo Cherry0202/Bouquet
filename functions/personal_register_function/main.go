@@ -68,9 +68,9 @@ func init() {
 	r.POST("/bouquet/user/personal", func(c *gin.Context) {
 		c.BindJSON(&req)
 		// tables
-		table_p := db.Table("b_bouquet_personal_data")
-		table_log := db.Table("b_bouquet_weight_log")
-		table_calender := db.Table("b_bouquet_calendar")
+		table_p := db.Table("bouquet_personal_data")
+		table_log := db.Table("bouquet_weight_log")
+		table_calender := db.Table("bouquet_calendar")
 
 		jst, _ := time.LoadLocation("Asia/Tokyo")
 
@@ -109,28 +109,22 @@ func init() {
 			c.JSON(401, gin.H{
 				"message": "認証エラー(b_bouquet_personal_data)",
 			})
-		}
-
-		//calender
-		if err := table_calender.Put(cc).Run(); err != nil {
+		} else if err := table_calender.Put(cc).Run(); err != nil {
 			fmt.Println("err")
 			//panic(err.Error())
 			c.JSON(401, gin.H{
 				"message": "認証エラー(b_bouquet_calendar)",
 			})
-		}
-
-		//Log
-		if err := table_log.Put(l).Run(); err != nil {
+		} else if err := table_log.Put(l).Run(); err != nil {
 			fmt.Println("err")
 			//panic(err.Error())
 			c.JSON(401, gin.H{
 				"message": "認証エラー(b_bouquet_weight_log)",
 			})
+		} else {
+			// body
+			c.JSON(200, p)
 		}
-
-		// body
-		c.JSON(200, p)
 	})
 
 	ginLambda = ginadapter.New(r)
