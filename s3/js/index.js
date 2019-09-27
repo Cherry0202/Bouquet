@@ -1,5 +1,5 @@
 // ビューオブジェクト生成
-var vm = new Vue({
+let vm = new Vue({
     el: "#app", // Vue.jsを使うタグのIDを指定
     data: {
     // Vue.jsで使う変数はここに記述する
@@ -22,11 +22,11 @@ var vm = new Vue({
     methods: {
     // Vue.jsで使う関数はここで記述する
         toggleMode: function(){
-            if (vm.mode == "login") {
+            if (vm.mode === "login") {
                 vm.mode = "signup";
                 vm.submitText = "次へ";
                 vm.toggleText = "ログイン";
-            } else if (vm.mode == "signup") {
+            } else if (vm.mode === "signup") {
                 vm.mode = "login";
                 vm.submitText = "ログイン";
                 vm.toggleText = "新規登録";
@@ -34,7 +34,7 @@ var vm = new Vue({
         },
         submit: function () {
 
-            if (vm.mode == "login") {
+            if (vm.mode === "login") {
                 // ログイン処理はここに
                 // APIにPOSTリクエストを送る
                 fetch(url + "/bouquet/user/login", {
@@ -42,10 +42,6 @@ var vm = new Vue({
                     body: JSON.stringify({
                         "user_id":vm.user_id,
                         "password": vm.user.password
-                        // "nickname": vm.user.nickname,
-                        // "age": Number(vm.user.age)
-                        // "userId": vm.user.userId,
-                        // "password": vm.user.password
                     })
                 })
                     .then(function(response) {
@@ -73,7 +69,7 @@ var vm = new Vue({
                     .catch(function(err) {
                     // レスポンスがエラーで返ってきたときの処理はここに記述する
                         console.log(err);
-                        return;
+                        return false;
                     });
             }else if (vm.mode === "signup") {
                 // 同じパスワードが入力された時の警告
@@ -116,7 +112,7 @@ var vm = new Vue({
                     .catch(function (err) {
                         // レスポンスがエラーで返ってきたときの処理はここに記述する
                         console.log(err);
-                        return;
+                        return false;
                     });
 
             }
