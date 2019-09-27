@@ -121,7 +121,7 @@ func init() {
 	var wedding Wedding_day
 	r := gin.Default()
 	//var req Request
-	r.GET("/bouquet/user/calendar", func(c *gin.Context) {
+	r.GET("/bouquet/calendar", func(c *gin.Context) {
 		// header
 		c.Header("Content-Type", "application/json; charset=utf-8")
 		c.Header("Access-Control-Allow-Origin", "*")
@@ -131,10 +131,10 @@ func init() {
 		fmt.Println("hogehogoe")
 		fmt.Println(qs)
 
-		table := db.Table("b_bouquet_users")
-		table_p := db.Table("b_bouquet_personal_data")
+		table := db.Table("bouquet_users")
+		table_p := db.Table("bouquet_personal_data")
 		//table_log := db.Table("b_bouquet_weight_log")
-		table_c := db.Table("b_bouquet_calendar")
+		table_c := db.Table("bouquet_calendar")
 
 		if qs == "" {
 			c.JSON(401, gin.H{

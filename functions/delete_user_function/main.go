@@ -37,10 +37,10 @@ func init() {
 	r.DELETE("/bouquet/user", func(c *gin.Context) {
 		c.BindJSON(&req)
 		// user table
-		table := db.Table("b_bouquet_users")
-		table1 := db.Table("b_bouquet_personal_data")
-		table2 := db.Table("b_bouquet_weight_log")
-		table3 := db.Table("b_bouquet_calendar")
+		table := db.Table("bouquet_users")
+		table1 := db.Table("bouquet_personal_data")
+		table2 := db.Table("bouquet_weight_log")
+		table3 := db.Table("bouquet_calendar")
 
 		u := User{
 			User_id: req.User_id,
@@ -70,7 +70,7 @@ func init() {
 			fmt.Println("err")
 
 			c.JSON(401, gin.H{
-				"message": "Failure(b_bouquet_personal_data)",
+				"message": "Failure(bouquet_personal_data)",
 				"request": u,
 			})
 		}
@@ -79,7 +79,7 @@ func init() {
 			fmt.Println("err")
 
 			c.JSON(401, gin.H{
-				"message": "Failure(b_bouquet_weight_log)",
+				"message": "Failure(bouquet_weight_log)",
 				"request": u,
 			})
 		}
