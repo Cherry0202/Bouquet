@@ -9,7 +9,8 @@ var vm = new Vue({
         user: {
             user_id: null,
             password: null,
-            user_name: null
+            user_name: null,
+            re_password: null
         }
     },
     computed: {
@@ -48,7 +49,7 @@ var vm = new Vue({
                     })
                 })
                     .then(function(response) {
-                        if (response.status == 200) {
+                        if (response.status === 200) {
                             return response.json();
                         }
                         // 200番以外のレスポンスはエラーを投げる
@@ -58,7 +59,7 @@ var vm = new Vue({
                     })
                     .then(function(json) {
                     // レスポンスが200番で返ってきたときの処理はここに記述する
-                        var content = JSON.stringify(json, null, 2);
+                        let content = JSON.stringify(json, null, 2);
                         //var content = JSON.stringify(json);
                         console.log(content);
                         console.log(json);
@@ -72,10 +73,9 @@ var vm = new Vue({
                     .catch(function(err) {
                     // レスポンスがエラーで返ってきたときの処理はここに記述する
                         console.log(err);
-
                         return;
                     });
-            }else if (vm.mode == "signup") {
+            }else if (vm.mode === "signup") {
                 // 同じパスワードが入力された時の警告
                 if(vm.user.password !== vm.user.re_password){
                     window.alert("正しいパスワードを入力してください");
@@ -84,7 +84,7 @@ var vm = new Vue({
                 // APIにPOSTリクエストを送る
                 console.log("in sigup");
                 console.log(vm.user);
-                fetch(url + "/bouquet/user",{
+                fetch(url + "/bouquet/user/register",{
                     method: "POST",
                     body: JSON.stringify({
                         "user_id": vm.user.user_id,
@@ -93,7 +93,7 @@ var vm = new Vue({
                     })
                 })
                     .then(function (response) {
-                        if (response.status == 200) {
+                        if (response.status === 200) {
                             return response.json();
                         }
                         // 200番以外のレスポンスはエラーを投げる
