@@ -79,7 +79,8 @@ var vm = new Vue({
                 // 同じパスワードが入力された時の警告
                 if(vm.user.password !== vm.user.re_password){
                     window.alert("正しいパスワードを入力してください");
-                    location.href = "./index.html";
+                    // location.href = "./index.html";
+                    return false;
                 }
                 // APIにPOSTリクエストを送る
                 console.log("in sigup");
