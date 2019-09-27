@@ -52,7 +52,7 @@ func init() {
 	log.Printf("Gin cold start")
 	var req Request
 	r := gin.Default()
-	r.POST("/bouquet/user", func(c *gin.Context) {
+	r.POST("/bouquet/user/register", func(c *gin.Context) {
 		c.BindJSON(&req)
 		// user table
 		table := db.Table("bouquet_users")
@@ -93,9 +93,7 @@ func init() {
 			c.JSON(401, gin.H{
 				"message": "emailを入力してください",
 			})
-		}
-		//user
-		if err := table.Put(u).If("attribute_not_exists(user_id)").Run(); err != nil {
+		} else if err := table.Put(u).If("attribute_not_exists(user_id)").Run(); err != nil {
 			fmt.Println("err")
 			//panic(err.Error())
 			c.JSON(401, gin.H{
@@ -103,10 +101,7 @@ func init() {
 					"既に存在しているIDです" +
 					"(bouquet_users)",
 			})
-		}
-
-		//Personal
-		if err := table1.Put(p).If("attribute_not_exists(user_id)").Run(); err != nil {
+		} else if err := table1.Put(p).If("attribute_not_exists(user_id)").Run(); err != nil {
 			fmt.Println("err")
 			//panic(err.Error())
 			c.JSON(401, gin.H{
@@ -114,10 +109,7 @@ func init() {
 					"既に存在しているIDです" +
 					"(bouquet_personal_data)",
 			})
-		}
-
-		//Log
-		if err := table2.Put(l).If("attribute_not_exists(user_id)").Run(); err != nil {
+		} else if err := table2.Put(l).If("attribute_not_exists(user_id)").Run(); err != nil {
 			fmt.Println("err")
 			//panic(err.Error())
 			c.JSON(401, gin.H{
@@ -125,10 +117,7 @@ func init() {
 					"既に存在しているIDです" +
 					"(bouquet_weight_log)",
 			})
-		}
-
-		//Log
-		if err := table3.Put(cc).If("attribute_not_exists(user_id)").Run(); err != nil {
+		} else if err := table3.Put(cc).If("attribute_not_exists(user_id)").Run(); err != nil {
 			fmt.Println("err")
 			//panic(err.Error())
 			c.JSON(401, gin.H{
@@ -136,14 +125,12 @@ func init() {
 					"既に存在しているIDです" +
 					"(bouquet_weight_log)",
 			})
+		} else {
+			c.JSON(200, gin.H{
+				"user_id":   req.User_id,
+				"user_name": req.User_name,
+			})
 		}
-
-		//後にtokenを渡す処理に変更
-		// body
-		c.JSON(200, gin.H{
-			"user_id":   req.User_id,
-			"user_name": req.User_name,
-		})
 	})
 
 	ginLambda = ginadapter.New(r)
