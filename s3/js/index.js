@@ -67,7 +67,7 @@ let vm = new Vue({
 
                     })
                     .catch(function(err) {
-                    // レスポンスがエラーで返ってきたときの処理はここに記述する
+                        // レスポンスがエラーで返ってきたときの処理はここに記述する
                         console.log(err);
                         return false;
                     });
@@ -104,7 +104,7 @@ let vm = new Vue({
                         console.log("レスポンス200番OK");
                         console.log(json);
                         console.log(json.user_id);
-                        localStorage.setItem('token', response.token);
+                        localStorage.setItem('token', json.token);
                         localStorage.setItem('user_id', vm.user.user_id);
                         location.href = "./confirm.html";
                     })
