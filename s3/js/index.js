@@ -80,7 +80,6 @@ let vm = new Vue({
                     return false;
                 }
                 // APIにPOSTリクエストを送る
-                console.log("in sigup");
                 console.log(vm.user);
                 fetch(url + "/bouquet/user/register",{
                     method: "POST",
@@ -101,14 +100,13 @@ let vm = new Vue({
                     })
                     .then(function (json) {
                         // レスポンスが200番で返ってきたときの処理はここに記述する
-                        // var content = JSON.stringify(json, null, 2);
+                        let content = JSON.stringify(json.token);
                         console.log("レスポンス200番OK");
                         console.log(json);
                         console.log(json.user_id);
-                        localStorage.setItem('token', json.token);
+                        localStorage.setItem('token', content);
                         localStorage.setItem('user_id', vm.user.user_id);
                         location.href = "./confirm.html";
-                        // location.href = "./index.html";
                     })
                     .catch(function (err) {
                         // レスポンスがエラーで返ってきたときの処理はここに記述する

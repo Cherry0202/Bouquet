@@ -12,12 +12,6 @@ let vm = new Vue({
             goal_weight: null
         }
     },
-    watch: {
-        // user_date: function () {
-        // // データの保存
-        //     localStorage.setItem('wedding_day', vm.user_date);
-        // },
-    },
     computed: {
     // 計算した結果を変数として利用したいときはここに記述する
     },
@@ -63,7 +57,7 @@ let vm = new Vue({
                 // レスポンスがエラーで返ってきたときの処理はここに記述する
                     console.log(err);
 
-                    return;
+                    return false;
                 });
         }
     }
