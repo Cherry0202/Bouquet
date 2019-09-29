@@ -32,20 +32,15 @@
                 <div class="eight wide column">
                     <div class="ui segment">
                         <form class="ui large form" v-on:submit.prevent="submit">
-                            <!-- v-if="mode==login" -->
                             <div class="field" v-if=" mode =='login'">
                                 <div class="ui left icon input">
                                     <i class="user icon"></i>
-                                    <!-- v-model="user.userId" -->
                                     <input type="email" placeholder="メールアドレス" v-model="user.user_id" required>
-                                    <!--inputには/inputはいらない!、placeholderは薄字になる-->
                                 </div>
                             </div>
-                            <!--  v-if="mode==login" -->
                             <div class="field" v-if="mode=='login'">
                                 <div class="ui left icon input">
                                     <i class="lock icon"></i>
-                                    <!--  v-model="user.password" -->
                                     <input type="password" placeholder="パスワード" v-model="user.password" required>
                                 </div>
                             </div>
