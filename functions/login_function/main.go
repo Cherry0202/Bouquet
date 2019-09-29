@@ -70,8 +70,7 @@ func init() {
 		} else {
 			// body
 			c.JSON(200, gin.H{
-				"token":   "mti2019",
-				"user_id": req.User_id,
+				"token": "mti2019",
 			})
 		}
 	})
