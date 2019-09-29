@@ -1,5 +1,5 @@
 // ビューオブジェクト生成
-var vm = new Vue({
+let vm = new Vue({
     el: "#app", // Vue.jsを使うタグのIDを指定
     data: {
     // Vue.jsで使う変数はここに記述する
@@ -106,7 +106,7 @@ var vm = new Vue({
                         console.log(json);
                         console.log(json.user_id);
                         localStorage.setItem('token', json.token);
-                        localStorage.setItem('user_id', user.user_id);
+                        localStorage.setItem('user_id', vm.user.user_id);
                         location.href = "./confirm.html";
                         // location.href = "./index.html";
                     })
