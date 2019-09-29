@@ -6,7 +6,7 @@ let vm = new Vue({
         user: {
             user_id:null,
             height: null,
-            position: null,
+            position: "選択してください",
             wedding_day: null,
             weight: null,
             goal_weight: null
