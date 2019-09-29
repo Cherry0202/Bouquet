@@ -13,10 +13,10 @@ let vm = new Vue({
         }
     },
     watch: {
-        user_date: function () {
-        // データの保存
-            localStorage.setItem('wedding_day', vm.user_date);
-        },
+        // user_date: function () {
+        // // データの保存
+        //     localStorage.setItem('wedding_day', vm.user_date);
+        // },
     },
     computed: {
     // 計算した結果を変数として利用したいときはここに記述する
@@ -54,17 +54,6 @@ let vm = new Vue({
                     //var content = JSON.stringify(json);
                     console.log(content);
                     console.log(json);
-                    // localStorage.setItem('user_id', vm.user.user_id);
-                    // localStorage.setItem('height', Number(vm.user.height));
-                    // localStorage.setItem('position', vm.user.part);
-                    // localStorage.setItem('wedding_day', vm.user.date);
-
-                    // localStorage.setItem('wedding_day', vm.user.date);
-                    // console.log(localStorage.getItem('wedding_day'));
-
-                    // localStorage.setItem('wedding_day', vm.user.date);
-                    // localStorage.setItem('wedding_day', vm.user_date);
-                    // // localStorage.setItem('weight', Number(vm.user.weight));
 
                     // カレンダーへ遷移
                     // location.href = "./calendar.html";

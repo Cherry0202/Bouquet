@@ -24,8 +24,8 @@
                 selectable: true,
                 selectHelper: true,
                 select: function(start, end) {
-                    var title = prompt("予定タイトル:");
-                    var eventData;
+                    let title = prompt("予定タイトル:");
+                    let eventData;
                     if (title) {
                         eventData = {
                             title: title,
@@ -40,17 +40,6 @@
                 eventLimit: true,
             });
         });
-
-        // var today = new Date();
-        // var timestamp = today.getTime();
-        // eventData1 = {
-        //     title: 'PPP',
-        //     start: timestamp,
-        //     end: timestamp*2
-        // };
-        // $('#calendar').fullCalendar('renderEvent', eventData1, true); // stick? = true
-        // editable: true,
-        // eventLimit: true,
     </script>
 </head>
 

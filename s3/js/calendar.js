@@ -1,4 +1,4 @@
-var vm = new Vue({
+let vm = new Vue({
     el: "#app", // Vue.jsを使うタグのIDを指定
     data: {
         // Vue.jsで使う変数はここに記述する
@@ -39,7 +39,7 @@ var vm = new Vue({
             method: "GET"
         })
             .then(function (response) {
-                if (response.status == 200) {
+                if (response.status === 200) {
                     return response.json();
                 }
                 // 200番以外のレスポンスはエラーを投げる
@@ -66,9 +66,9 @@ var vm = new Vue({
                 console.log("goal_weight");
                 console.log(json.goal_weight);
                 vm.users = json;
-                var div_weight = Number(json.weight) - Number(json.goal_weight);
-                var wedding_day_s = localStorage.getItem('wedding_day');
-                var wedding_day = new Date(wedding_day_s);
+                let div_weight = Number(json.weight) - Number(json.goal_weight);
+                let wedding_day_s = localStorage.getItem('wedding_day');
+                let wedding_day = new Date(wedding_day_s);
 
                 console.log(div_weight);
                 vm.users.div_weight = div_weight;
@@ -76,10 +76,10 @@ var vm = new Vue({
                 console.log("vm.users.wedding_day");
                 console.log(vm.users.wedding_day);
 
-                var today = new Date();
-                var timestamp = today.getTime();
-                // var timestamp = today.getTime();
-                var wedding_count = (wedding_day - timestamp);
+                // let today = new Date();
+                // let timestamp = today.getTime();
+                // // let timestamp = today.getTime();
+                // let wedding_count = (wedding_day - timestamp);
 
                 console.log("wedding_count");
                 console.log(wedding_count);
@@ -116,7 +116,7 @@ var vm = new Vue({
                     // password: vm.user.password
                 })
             }).then(function (response) {
-                if (response.status == 200) {
+                if (response.status === 200) {
                     console.log(response);
                     return response.json();
                 }
