@@ -21,66 +21,66 @@
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
 
-    <script>
-        $(document).ready(function(){
-            $('.ui.calendar').calendar(
-                {
-                    type: 'date',
-                    formatter: {
-                        date: function (date) {
-                        let day = ('0' + date.getDate()).slice(-2);
-                        let month = ('0' + (date.getMonth() + 1)).slice(-2);
-                        let year = date.getFullYear();
-                        return year + '/' + month + '/' + day;
-                        }
-                    },
-                    text: {
-                        days: [
-                            "日",
-                            "月",
-                            "火",
-                            "水",
-                            "木",
-                            "金",
-                            "土"
-                        ],
-                        months: [
-                            "1月",
-                            "2月",
-                            "3月",
-                            "4月",
-                            "5月",
-                            "6月",
-                            "7月",
-                            "8月",
-                            "9月",
-                            "10月",
-                            "11月",
-                            "12月"
-                        ],
-                        monthsShort:  [
-                            "1月",
-                            "2月",
-                            "3月",
-                            "4月",
-                            "5月",
-                            "6月",
-                            "7月",
-                            "8月",
-                            "9月",
-                            "10月",
-                            "11月",
-                            "12月"
-                        ],
-                        today: '今日',
-                        now: 'Now',
-                        am: 'AM',
-                        pm: 'PM'
-                    },
-                }
-            );
-        });
-    </script>
+<!--    <script>-->
+<!--        $(document).ready(function(){-->
+<!--            $('.ui.calendar').calendar(-->
+<!--                {-->
+<!--                    type: 'date',-->
+<!--                    formatter: {-->
+<!--                        date: function (date) {-->
+<!--                        let day = ('0' + date.getDate()).slice(-2);-->
+<!--                        let month = ('0' + (date.getMonth() + 1)).slice(-2);-->
+<!--                        let year = date.getFullYear();-->
+<!--                        return year + '/' + month + '/' + day;-->
+<!--                        }-->
+<!--                    },-->
+<!--                    text: {-->
+<!--                        days: [-->
+<!--                            "日",-->
+<!--                            "月",-->
+<!--                            "火",-->
+<!--                            "水",-->
+<!--                            "木",-->
+<!--                            "金",-->
+<!--                            "土"-->
+<!--                        ],-->
+<!--                        months: [-->
+<!--                            "1月",-->
+<!--                            "2月",-->
+<!--                            "3月",-->
+<!--                            "4月",-->
+<!--                            "5月",-->
+<!--                            "6月",-->
+<!--                            "7月",-->
+<!--                            "8月",-->
+<!--                            "9月",-->
+<!--                            "10月",-->
+<!--                            "11月",-->
+<!--                            "12月"-->
+<!--                        ],-->
+<!--                        monthsShort:  [-->
+<!--                            "1月",-->
+<!--                            "2月",-->
+<!--                            "3月",-->
+<!--                            "4月",-->
+<!--                            "5月",-->
+<!--                            "6月",-->
+<!--                            "7月",-->
+<!--                            "8月",-->
+<!--                            "9月",-->
+<!--                            "10月",-->
+<!--                            "11月",-->
+<!--                            "12月"-->
+<!--                        ],-->
+<!--                        today: '今日',-->
+<!--                        now: 'Now',-->
+<!--                        am: 'AM',-->
+<!--                        pm: 'PM'-->
+<!--                    },-->
+<!--                }-->
+<!--            );-->
+<!--        });-->
+<!--    </script>-->
 
     <!-- 共通のCSSファイルを読み込む -->
     <link rel="stylesheet" href="./css/confirm.css">
@@ -97,7 +97,6 @@
                 <div class="eight wide column">
                     <div class="ui segment">
                         <form class="ui large form" v-on:submit.prevent="submit">
-                            <!-- v-if="mode==login" -->
                             <h2>Hello</h2>
 
                             <div class="ui grid two column">
@@ -122,7 +121,7 @@
                                 <!-- <div class="column four wide left aligned hw"> -->
                                 <div class="column five wide right aligned hw">気になる部位</div>
                                 <div class="column eight wide field">
-                                    <select name="example1" class="ui dropdown" v-model="user.part">
+                                    <select name="example1" class="ui dropdown" v-model="user.position">
                                         <option disabled selected value>選択して下さい</option>
                                         <option value="二の腕">二の腕</option>
                                         <option value="背中">背中</option>
@@ -134,7 +133,7 @@
                             </div>
                                 <!-- <div class="column twelve wide field ui input"><input type="text"></div>
                             </div><br> -->
-                            <br><br>
+                            <br/><br/>
 
                             <!-- <p>挙式日</p> -->
                             <div class="ui two wide column grid right aligned marriage">
@@ -143,21 +142,10 @@
                                     <div class="field ui calendar required">
                                         <div class="ui input left icon">
                                             <i class="calendar icon"></i>
-                                            <input type="text" name="date" placeholder="日付" v-model="user_date">
+                                            <input type="text" name="date" placeholder="日付" v-model="user.wedding_day">
                                         </div>
                                     </div>
                                 </div>
-                                    <!-- <div class="field column ui input right aligned">挙式日
-                                    </div><br> -->
-                                        <!-- <div class="field column ui input">
-                                        <input type="text" class=" width85" />年
-                                    </div>
-                                    <div class="field column ui input">
-                                        <input type="text" class=" width85" />月
-                                    </div>
-                                    <div class="field column ui input ">
-                                        <input type="text" class=" width85" />日
-                                    </div> -->
                             </div>
 
 
@@ -166,44 +154,8 @@
                                 <div class="column eight wide field ui input">
                                     <div class="ui input right icon">
                                         <i class="icon input-icon">kg</i>
-                                        <input type="text" v-model="user.best_weight">
+                                        <input type="text" v-model="user.goal_weight">
                                     </div>
-<!--
-                                    <div class="two fields">
-                                        <div class="field">
-                                            <input type="text">
-                                        </div>
-                                        <div class="field">
-                                            kg
-                                        </div>
-                                    </div> -->
-                                </div>
-                            </div>
-
-                            <!--  v-if="mode==login" -->
-                            <!-- <div class="field">
-                                <p>体重</p>
-                                <input type="text">
-                            </div>
-                            <div class="field">
-                                <p>気になる部位</p>
-                                <input type="text">
-                            </div>
-                            -->
-                            <!-- <div class="field">
-                                <p>挙式日</p>
-                                <div class="ui three columns grid">
-                                    <div class="field year">
-                                        <input type="text">年
-                                    </div>
-                                    <div class="field month">
-                                        <input type="text">月
-                                    </div>
-                                    <div class="field day">
-                                        <input type="text">日
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="ui text-center">
                                 <button class="next" type="submit">
                                     登録
