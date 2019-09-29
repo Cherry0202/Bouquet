@@ -56,7 +56,7 @@ let vm = new Vue({
                     console.log(json);
 
                     // カレンダーへ遷移
-                    // location.href = "./calendar.html";
+                    location.href = "./calendar.html";
 
                 })
                 .catch(function(err) {
