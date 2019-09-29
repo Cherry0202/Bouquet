@@ -26,7 +26,6 @@ var vm = new Vue({
     methods: {
     // Vue.jsで使う関数はここで記述する
         submit: function () {
-            // ログイン処理はここに
             // APIにPOSTリクエストを送る
             fetch(url + "/bouquet/user/personal", {
                 method: "POST",

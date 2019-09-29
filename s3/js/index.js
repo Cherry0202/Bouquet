@@ -1,5 +1,5 @@
 // ビューオブジェクト生成
-let vm = new Vue({
+var vm = new Vue({
     el: "#app", // Vue.jsを使うタグのIDを指定
     data: {
     // Vue.jsで使う変数はここに記述する
@@ -55,7 +55,7 @@ let vm = new Vue({
                     })
                     .then(function(json) {
                     // レスポンスが200番で返ってきたときの処理はここに記述する
-                        let content = JSON.stringify(json, null, 2);
+                        var content = JSON.stringify(json, null, 2);
                         //var content = JSON.stringify(json);
                         console.log(content);
                         console.log(json);
@@ -71,7 +71,8 @@ let vm = new Vue({
                         console.log(err);
                         return false;
                     });
-            }else if (vm.mode === "signup") {
+            } else if (vm.mode === "signup") {
+                // 新規登録時
                 // 同じパスワードが入力された時の警告
                 if(vm.user.password !== vm.user.re_password){
                     window.alert("正しいパスワードを入力してください");
@@ -105,7 +106,7 @@ let vm = new Vue({
                         console.log(json);
                         console.log(json.user_id);
                         localStorage.setItem('token', json.token);
-                        localStorage.setItem('user_id', json.user_id);
+                        localStorage.setItem('user_id', user.user_id);
                         location.href = "./confirm.html";
                         // location.href = "./index.html";
                     })
