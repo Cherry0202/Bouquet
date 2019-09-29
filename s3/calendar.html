@@ -11,36 +11,38 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/moment.min.js"></script>
+    <link rel='stylesheet' href='https://unpkg.com/v-calendar/lib/v-calendar.min.css'>
+    <script src='https://unpkg.com/v-calendar@next'></script>
     <script type="text/javascript" src="js/fullcalendar.min.js"></script>
     <script type="text/javascript" src="lang/ja.js"></script>
-    <script>
-        // ページ読み込み時の処理
-        $(document).ready(function() {
+<!--    <script>-->
+<!--        // ページ読み込み時の処理-->
+<!--        $(document).ready(function() {-->
 
-            // カレンダーの設定
-            $('#calendar').fullCalendar({
-                height: 550,
-                lang: "ja",
-                selectable: true,
-                selectHelper: true,
-                select: function(start, end) {
-                    let title = prompt("予定タイトル:");
-                    let eventData;
-                    if (title) {
-                        eventData = {
-                            title: title,
-                            start: start,
-                            end: end
-                        };
-                        $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-                    }
-                    $('#calendar').fullCalendar('unselect');
-                },
-                editable: true,
-                eventLimit: true,
-            });
-        });
-    </script>
+<!--            // カレンダーの設定-->
+<!--            $('#calendar').fullCalendar({-->
+<!--                height: 550,-->
+<!--                lang: "ja",-->
+<!--                selectable: true,-->
+<!--                selectHelper: true,-->
+<!--                select: function(start, end) {-->
+<!--                    let title = prompt("予定タイトル:");-->
+<!--                    let eventData;-->
+<!--                    if (title) {-->
+<!--                        eventData = {-->
+<!--                            title: title,-->
+<!--                            start: start,-->
+<!--                            end: end-->
+<!--                        };-->
+<!--                        $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true-->
+<!--                    }-->
+<!--                    $('#calendar').fullCalendar('unselect');-->
+<!--                },-->
+<!--                editable: true,-->
+<!--                eventLimit: true,-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
 </head>
 
 <body>
@@ -117,8 +119,8 @@
                         </ul>
                     </div>
                     <div class="twelve wide column">
-                        <div id='calendar'>
-                        </div>
+<!--                        <v-calendar  is-expanded :rows="2"/>-->
+                        <v-calendar :attributes='attrs' is-expanded :rows="2"></v-calendar>
                     </div>
                 </div>
             </div>

@@ -13,25 +13,13 @@ let vm = new Vue({
                 title: null,
                 start: null,
                 end: null
-            }
+            },
         }
     },
     computed: {
         // 計算した結果を変数として利用したいときはここに記述する
     },
     created: function() {
-
-        // let hoge = localStorage.getItem('weight');
-        // console.log(hoge);
-        // let hoge2 = localStorage.getItem('user_id');
-        // console.log(hoge2);
-        // let hoge3 = localStorage.getItem('height');
-        // console.log(hoge3);
-        // let hoge4 = localStorage.getItem('position');
-        // console.log(hoge4);
-        // let hoge5 = localStorage.getItem('wedding_day');
-        // console.log(hoge5);
-
         // Vue.jsの読み込みが完了したときに実行する処理はここに記述する
         // APIにGETリクエストを送る
         fetch(url + "/bouquet/user/calendar" +
