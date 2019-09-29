@@ -28,7 +28,7 @@
     <!-- Vue.jsで読み込む -->
     <h1>BOUQUET</h1>
     <div id="app">
-        <!-- <common-menu current="confirm"></common-menu> -->
+<!--         <common-menu current="confirm"></common-menu>-->
         <div class="ui main container">
             <div class="ui stackable grid">
                 <div class="four wide column"></div>
@@ -36,7 +36,6 @@
                     <div class="ui segment">
                         <form class="ui large form" v-on:submit.prevent="submit">
                             <h2>Hello</h2>
-
                             <div class="ui grid two column">
                                 <div class="column five wide right aligned hw">身長</div>
                                 <div class="column eight wide field">
@@ -45,8 +44,6 @@
                                         <input type="text" v-model="user.height">
                                     </div>
                                 </div>
-                                <div class="column three wide field"></div>
-
                                 <div class="column five wide right aligned hw">体重</div>
                                 <div class="column eight wide field">
                                     <div class="ui input right icon">
@@ -55,8 +52,6 @@
                                     </div>
                                 </div>
                                 <div class="column three wide field"></div>
-
-                                <!-- <div class="column four wide left aligned hw"> -->
                                 <div class="column five wide right aligned hw">気になる部位</div>
                                 <div class="column eight wide field">
                                     <select name="example1" class="ui dropdown" v-model="user.position">
@@ -68,37 +63,35 @@
                                         <option value="顔">顔</option>
                                     </select>
                                 </div>
-                            </div>
-                                <!-- <div class="column twelve wide field ui input"><input type="text"></div>
-                            </div><br> -->
-                            <br/><br/>
-
-                            <!-- <p>挙式日</p> -->
-                            <div class="ui two wide column grid right aligned marriage">
+                                <br/><br/>
+<!--                            <div class="ui two wide column grid right aligned marriage">-->
                                 <div class="column five wide right aligned hw">挙式日</div>
-                                <div class="column eight wide field ui input left aligned">
-                                    <div class="field ui calendar required">
+<!--                                <div class="column eight wide field ui input left aligned">-->
+                                    <div class="column eight wide field ui input required">
                                         <div class="ui input left icon">
                                             <i class="calendar icon"></i>
-                                            <input type="text" name="date" placeholder="日付" v-model="user.wedding_day">
+                                            <input type="date" name="date" placeholder="日付" v-model="user.wedding_day">
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+<!--                                </div>-->
+<!--                            </div>-->
 
-
-                            <div class="ui grid two column">
+                                <br/><br/>
+<!--                            <div class="ui grid two column">-->
                                 <div class="column five wide right aligned">目標体重</div>
                                 <div class="column eight wide field ui input">
                                     <div class="ui input right icon">
                                         <i class="icon input-icon">kg</i>
                                         <input type="text" v-model="user.goal_weight">
                                     </div>
+                                </div>
+                            </div>
                             <div class="ui text-center">
                                 <button class="next" type="submit">
                                     登録
                                 </button>
                             </div>
+<!--                            </div>-->
                         </form>
                     </div>
                 </div>
