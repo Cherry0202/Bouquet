@@ -103,6 +103,7 @@ let vm = new Vue({
                         let response = JSON.stringify(json);
                         console.log("レスポンス200番OK");
                         console.log(json);
+                        console.log(response);
                         console.log(json.user_id);
                         localStorage.setItem('token', json.token);
                         localStorage.setItem('user_id', vm.user.user_id);
