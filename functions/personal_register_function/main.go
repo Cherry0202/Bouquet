@@ -44,13 +44,14 @@ type Calender struct {
 	CreatedTime time.Time `dynamo:"created_time"`
 }
 
-type Response struct {
-	Height      int    `json:"height"`
-	Weight      int    `json:"weight"`
-	Position    string `json:"position"`
-	Wedding_day string `json:"wedding_day"`
-	Goal_weight int    `json:"goal_weight"`
-}
+//
+//type Response struct {
+//	Height      int    `json:"height"`
+//	Weight      int    `json:"weight"`
+//	Position    string `json:"position"`
+//	Wedding_day string `json:"wedding_day"`
+//	Goal_weight int    `json:"goal_weight"`
+//}
 
 var ginLambda *ginadapter.GinLambda
 
@@ -94,14 +95,6 @@ func init() {
 			CreatedTime: time.Now().In(jst),
 		}
 
-		response := Response{
-			Height:      req.Height,
-			Weight:      req.Weight,
-			Position:    req.Position,
-			Wedding_day: req.Wedding_day,
-			Goal_weight: req.Goal_weight,
-		}
-
 		fmt.Println("#######")
 		fmt.Println(req.Wedding_day)
 
@@ -130,7 +123,9 @@ func init() {
 			})
 		} else {
 			// body
-			c.JSON(200, response)
+			c.JSON(200, gin.H{
+				"message": "Success!",
+			})
 		}
 	})
 
