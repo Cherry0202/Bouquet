@@ -60,7 +60,7 @@ let vm = new Vue({
                         console.log(content);
                         console.log(json);
                         localStorage.setItem('token', json.token);
-                        localStorage.setItem('user_id', vm.data.user.user_id);
+                        localStorage.setItem('user_id', vm.user.user_id);
 
                         // トップページへ遷移
                         location.href = "./calendar.html";
