@@ -100,11 +100,11 @@ let vm = new Vue({
                     })
                     .then(function (json) {
                         // レスポンスが200番で返ってきたときの処理はここに記述する
-                        let content = JSON.stringify(json.token);
+                        let response = JSON.stringify(json);
                         console.log("レスポンス200番OK");
                         console.log(json);
                         console.log(json.user_id);
-                        localStorage.setItem('token', content);
+                        localStorage.setItem('token', response.token);
                         localStorage.setItem('user_id', vm.user.user_id);
                         location.href = "./confirm.html";
                     })
