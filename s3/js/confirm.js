@@ -1,5 +1,5 @@
 // ビューオブジェクト生成
-var vm = new Vue({
+let vm = new Vue({
     el: "#app", // Vue.jsを使うタグのIDを指定
     data: {
     // Vue.jsで使う変数はここに記述する
@@ -8,7 +8,8 @@ var vm = new Vue({
             height: null,
             position: null,
             wedding_day: null,
-            weight: null
+            weight: null,
+            goal_weight: null
         }
     },
     watch: {
@@ -30,16 +31,16 @@ var vm = new Vue({
             fetch(url + "/bouquet/user/personal", {
                 method: "POST",
                 body: JSON.stringify({
-                    "user_id":localStorage.getItem('user_id', vm.user.user_id),
+                    "user_id":localStorage.getItem('user_id'),
                     "height":Number(vm.user.height),
-                    "position":vm.user.part,
-                    "wedding_day":vm.user_date,
+                    "position":vm.user.position,
+                    "wedding_day":vm.user.wedding_day,
                     "weight": Number(vm.user.weight),
-                    "goal_weight": Number(vm.user.best_weight)
+                    "goal_weight": Number(vm.user.goal_weight)
                 })
             })
                 .then(function(response) {
-                    if (response.status == 200) {
+                    if (response.status === 200) {
                         return response.json();
                     }
                     // 200番以外のレスポンスはエラーを投げる
@@ -49,7 +50,7 @@ var vm = new Vue({
                 })
                 .then(function(json) {
                 // レスポンスが200番で返ってきたときの処理はここに記述する
-                    var content = JSON.stringify(json, null, 2);
+                    let content = JSON.stringify(json, null, 2);
                     //var content = JSON.stringify(json);
                     console.log(content);
                     console.log(json);

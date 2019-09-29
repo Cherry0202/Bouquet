@@ -55,7 +55,7 @@ var vm = new Vue({
                     })
                     .then(function(json) {
                     // レスポンスが200番で返ってきたときの処理はここに記述する
-                        var content = JSON.stringify(json, null, 2);
+                        let content = JSON.stringify(json, null, 2);
                         //var content = JSON.stringify(json);
                         console.log(content);
                         console.log(json);
