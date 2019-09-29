@@ -45,7 +45,6 @@ type Calender struct {
 }
 
 type Response struct {
-	User_id     string `json:"user_id"`
 	Height      int    `json:"height"`
 	Weight      int    `json:"weight"`
 	Position    string `json:"position"`
@@ -95,6 +94,14 @@ func init() {
 			CreatedTime: time.Now().In(jst),
 		}
 
+		response := Response{
+			Height:      req.Height,
+			Weight:      req.Weight,
+			Position:    req.Position,
+			Wedding_day: req.Wedding_day,
+			Goal_weight: req.Goal_weight,
+		}
+
 		fmt.Println("#######")
 		fmt.Println(req.Wedding_day)
 
@@ -107,7 +114,7 @@ func init() {
 			fmt.Println("err")
 			//panic(err.Error())
 			c.JSON(401, gin.H{
-				"message": "認証エラー(b_bouquet_personal_data)",
+				"message": "認証エラー(bouquet_personal_data)",
 			})
 		} else if err := table_calender.Put(cc).Run(); err != nil {
 			fmt.Println("err")
@@ -123,7 +130,7 @@ func init() {
 			})
 		} else {
 			// body
-			c.JSON(200, p)
+			c.JSON(200, response)
 		}
 	})
 
