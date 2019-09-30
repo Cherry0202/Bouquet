@@ -15,11 +15,18 @@ let vm = new Vue({
                 end: null
             },
         },
-        dates: [
-            { start: new Date(2019, 9, 1), end: new Date(2019, 9, 5) },
-            { start: new Date(2019, 9, 15), span: 5 } // # of days
-        ]
-    },
+        attrs: [
+            {
+                key: 'today',
+                highlight: {
+                    backgroundColor: '#ff8080',
+                },
+                dates: new Date(),
+                popover: {
+                    label: 'メッセージを表示できます',
+                },
+            }
+        ],    },
     computed: {
         // 計算した結果を変数として利用したいときはここに記述する
     },
