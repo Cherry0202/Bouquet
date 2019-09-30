@@ -82,6 +82,7 @@ let vm = new Vue({
                 // console.log("goal_weight");
                 // console.log(json.goal_weight);
                 vm.users = json;
+                console.log(vm.users.wedding_day);
                 // let div_weight = Number(json.weight) - Number(json.goal_weight);
                 // let wedding_day_s = localStorage.getItem('wedding_day');
                 // let wedding_day = new Date(wedding_day_s);
