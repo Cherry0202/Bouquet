@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css" media="all" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
     <link rel='stylesheet' href='https://unpkg.com/v-calendar/lib/v-calendar.min.css'>
-    <script src='https://unpkg.com/v-calendar'></script>
+    <script src='https://unpkg.com/v-calendar@next'></script>
 </head>
 
 <body>
@@ -91,11 +91,9 @@
                             </div>
                         </ul>
                     </div>
-                    <div class="twelve wide column">
+                    <div class="twelve wide column calendar">
 <!--                        <v-calendar :attributes="attrs" is-expanded :rows="2" />-->
-                        <v-calendar :attributes='attrs' is-expanded :rows="2"></v-calendar>
-                        <v-calendar :attributes='attrs' is-expanded :rows="2"></v-calendar>
-
+                        <v-calendar class="v-calendar" :rows="2" :attributes='attrs' is-expanded />
                     </div>
                 </div>
             </div>

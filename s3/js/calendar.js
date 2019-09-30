@@ -19,15 +19,27 @@ let vm = new Vue({
             {
                 key: 'today',
                 highlight: {
-                    backgroundColor: '#ff8080',
+                    backgroundColor: 'pink',
                 },
                 dates: [
-                    { start: new Date(2019, 10, 1), end: new Date(2019, 10, 5) },
+                    { start: new Date(2019, 10-1, 1), end: new Date(2019, 10-1, 5) },
                     { start: new Date(2019, 10, 15), span: 5 } // # of days
                 ],
                 popover: {
                     label: 'メッセージを表示できます',
                 },
+            },
+            {
+                dot: 'red',
+                dates: {
+                    start: new Date('11/18/2019'),
+                    monthlyInterval: 2,           // Every other month
+                    ordinalWeekdays: { [-1]: 6 }  // ...on the last Friday
+                },
+                popover: {
+                    label: 'hoge',
+                },
+
             }
         ],    },
     computed: {
