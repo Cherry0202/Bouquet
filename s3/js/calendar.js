@@ -32,7 +32,7 @@ let vm = new Vue({
             {
                 dot: 'red',
                 dates: {
-                    start: vm.users.wedding_day,
+                    start: new Date(vm.users.wedding_day),
                     monthlyInterval: 2,           // Every other month
                     ordinalWeekdays: { [-1]: 6 }  // ...on the last Friday
                 },
