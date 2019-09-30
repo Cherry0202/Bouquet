@@ -92,7 +92,10 @@
                         </ul>
                     </div>
                     <div class="twelve wide column">
-                        <v-calendar is-expanded :rows="2" v-model="dates"/>
+                        <v-calendar is-expanded :rows="2" />
+                        <v-date-picker
+                            v-model='dates'
+                        />
                     </div>
                 </div>
             </div>
