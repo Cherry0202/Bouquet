@@ -16,8 +16,8 @@ let vm = new Vue({
             },
         },
         dates: [
-            { start: new Date(2018, 0, 1), end: new Date(2018, 0, 5) },
-            { start: new Date(2018, 0, 15), span: 5 } // # of days
+            { start: new Date(2019, 9, 1), end: new Date(2019, 9, 5) },
+            { start: new Date(2019, 9, 15), span: 5 } // # of days
         ]
     },
     computed: {
