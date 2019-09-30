@@ -1,27 +1,22 @@
-let vm = new Vue({
+let vc = new Vue({
     el: "#calendar", // Vue.jsを使うタグのIDを指定
     data: {
         // Vue.jsで使う変数はここに記述する
         attrs: [
             {
-                key: 'today',
-                highlight: {
-                    animated: true,
-                    height: '1.8rem',
-                    backgroundColor: 'red',
-                    borderColor: null,
-                    borderWidth: '1px',
-                    borderStyle:'solid',
-                    borderRadius:'1.8rem',
-                    opacity: 1
-                },
-                dates: new Date(),
-                popover: {
-                    label: 'メッセージを表示できます',
-                },
+                dates: [
+                    new Date(),
+                    {
+                        start: new Date(2019, 10, 1),
+                        end: new Date(2019, 10, 5)
+                    },
+                    {
+                        start: new Date(),
+                        span: 5
+                    }
+                ]
             }
-        ],
-    },
+        ],    },
     computed: {
         // 計算した結果を変数として利用したいときはここに記述する
     },
