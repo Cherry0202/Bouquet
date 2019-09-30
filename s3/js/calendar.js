@@ -42,6 +42,7 @@ let vm = new Vue({
                 // vm.user.age = json.Item.age;
                 // console.log("200OK");
                 console.log("json");
+                console.log(json);
                 // console.log(json);
                 // console.log("height");
                 // console.log(json.height);
@@ -54,24 +55,24 @@ let vm = new Vue({
                 // console.log("goal_weight");
                 // console.log(json.goal_weight);
                 vm.users = json;
-                let div_weight = Number(json.weight) - Number(json.goal_weight);
-                let wedding_day_s = localStorage.getItem('wedding_day');
-                let wedding_day = new Date(wedding_day_s);
+                // let div_weight = Number(json.weight) - Number(json.goal_weight);
+                // let wedding_day_s = localStorage.getItem('wedding_day');
+                // let wedding_day = new Date(wedding_day_s);
 
-                console.log(div_weight);
-                vm.users.div_weight = div_weight;
-                vm.users.wedding_day = wedding_day;
-                console.log("vm.users.wedding_day");
-                console.log(vm.users.wedding_day);
+                // console.log(div_weight);
+                // vm.users.div_weight = div_weight;
+                // vm.users.wedding_day = wedding_day;
+                // console.log("vm.users.wedding_day");
+                // console.log(vm.users.wedding_day);
 
                 // let today = new Date();
                 // let timestamp = today.getTime();
                 // // let timestamp = today.getTime();
                 // let wedding_count = (wedding_day - timestamp);
 
-                console.log("wedding_count");
-                console.log(wedding_count);
-                vm.users.wedding_count = wedding_count;
+                // console.log("wedding_count");
+                // console.log(wedding_count);
+                // vm.users.wedding_count = wedding_count;
                 // (day2 - day1) / 86400000
 
                 // console.log(vm.users.Bridal_beauty_treatment_salon);
