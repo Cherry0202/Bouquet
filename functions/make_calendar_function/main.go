@@ -175,11 +175,11 @@ func init() {
 			days := hours0 / 24
 
 			//目標体重まであと~
-			until_goal_weight := personal.Weight - personal.Goal_Weight
+			untilGoalWeight := personal.Weight - personal.Goal_Weight
 			//user_nameを返す
 			res := Response{
 				User_name:         name.User_name,
-				Until_goal_weight: until_goal_weight,
+				Until_goal_weight: untilGoalWeight,
 				Counting_days:     days,
 				Goal_weight:       personal.Goal_Weight,
 			}
