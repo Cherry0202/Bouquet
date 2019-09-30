@@ -28,6 +28,7 @@ let vm = new Vue({
         })
             .then(function (response) {
                 if (response.status === 200) {
+                    console.log(response);
                     return response.json();
                 }
                 // 200番以外のレスポンスはエラーを投げる
