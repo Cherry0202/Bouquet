@@ -19,16 +19,17 @@ type User_name struct {
 	User_name string `dynamo:"user_name" json:"user_name"`
 }
 
-type Height struct {
+type Personal struct {
 	Height      int    `dynamo:"height"`
 	Weight      int    `dynamo:"weight"`
 	Goal_Weight int    `dynamo:"goal_weight"`
 	Position    string `dynamo:"position"`
-}
-
-type Wedding_day struct {
 	Wedding_day string `dynamo:"wedding_day"`
 }
+
+//type Wedding_day struct {
+//	Wedding_day string `dynamo:"wedding_day"`
+//}
 
 type Nail_and_extetiton struct {
 	Title string `json:"title"`
@@ -74,6 +75,7 @@ type Response struct {
 	Height             int    `json:"height"`
 	Goal_weight        int    `json:"goal_weight"`
 	Weight             int    `json:"weight"`
+	Until_goal_weight  int    `json:"until_goal_weight"`
 	Position           string `json:"position"`
 	Counting_days      int    `json:"counting_days"`
 	Nail_and_extetiton struct {
@@ -111,7 +113,7 @@ func init() {
 	// stdout and stderr are sent to AWS CloudWatch Logs
 	log.Printf("Gin cold start")
 	var name User_name
-	var height Height
+	var personal Personal
 	//var weight GoalWeight
 	//var wedding Wedding_day
 	r := gin.Default()
@@ -142,7 +144,7 @@ func init() {
 				"message": "不正なuser_idです",
 				"request": qs,
 			})
-		} else if err := table_p.Get("user_id", qs).One(&height); err != nil {
+		} else if err := table_p.Get("user_id", qs).One(&personal); err != nil {
 			fmt.Println("err")
 			c.JSON(401, gin.H{
 				"message": "不正なuser_idです",
@@ -150,9 +152,36 @@ func init() {
 			})
 		} else {
 
+			//str := wedding.Wedding_day
+			////fmt.Println(str)
+			////str := "2019-01-01"
+			//layout := "2006-01-02"
+			//t, _ := time.Parse(layout, str)
+			//fmt.Println("#########################################")
+			//fmt.Println(str) // => "2003-04-18 00:00:00 +0000 UTC"
+			//fmt.Println(t)
+			//fmt.Println(t.Local())
+			//
+			//today := time.Now()
+			//bSix := t.AddDate(0, 6, 0)
+			//bThree := t.AddDate(0, 3, 0)
+			//bOne := t.AddDate(0, 1, 0)
+			//fmt.Println("aaaaaaaa")
+			//
+			////残り日数計算
+			//duration := t.Sub(today)
+			//hours0 := int(duration.Hours())
+			//fmt.Println(hours0)
+			//days := hours0 / 24
+
+			//目標体重まであと~
+			until_goal_weight := personal.Weight - personal.Goal_Weight
 			//user_nameを返す
-			//res := Response{User_name: name.User_name}
-			//c.JSON(200, res)
+			res := Response{
+				User_name:         name.User_name,
+				Until_goal_weight: until_goal_weight,
+			}
+			c.JSON(200, res)
 		}
 		//else
 
