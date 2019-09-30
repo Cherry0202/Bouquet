@@ -79,6 +79,7 @@ type Response struct {
 	Until_goal_weight  int    `json:"until_goal_weight"`
 	Position           string `json:"position"`
 	Counting_days      int    `json:"counting_days"`
+	Wedding_day        string `json:"wedding_day"`
 	Nail_and_extetiton struct {
 		Title string `json:"title"`
 		Start string `json:"start"`
@@ -115,8 +116,6 @@ func init() {
 	log.Printf("Gin cold start")
 	var name User_name
 	var personal Personal
-	//var weight GoalWeight
-	//var wedding Wedding_day
 	r := gin.Default()
 	//var req Request
 	r.GET("/bouquet/calendar", func(c *gin.Context) {
@@ -182,44 +181,14 @@ func init() {
 				Until_goal_weight: untilGoalWeight,
 				Counting_days:     days,
 				Goal_weight:       personal.Goal_Weight,
+				Wedding_day:       personal.Wedding_day,
 			}
 			c.JSON(200, res)
 		}
-		//else
-
-		//if err := table_log.Get("user_id", qs).One(&weight); err != nil {
-		//	fmt.Println("err")
-		//	c.JSON(401, gin.H{
-		//		"message": "不正なuser_idです",
-		//		"request": qs,
-		//	})
-		//}
-
-		/*		if err := table_c.Get("user_id", qs).One(&wedding); err != nil {
-				fmt.Println("err")
-				c.JSON(401, gin.H{
-					"message": "不正なuser_idです",
-					"request": qs,
-				})
-		*/
-		//}
-		//else {
-		//
-		//str := wedding.Wedding_day
-		////fmt.Println(str)
-		////str := "2019-01-01"
-		//layout := "2006-01-02"
-		//t, _ := time.Parse(layout, str)
-		//fmt.Println("#########################################")
-		//fmt.Println(str) // => "2003-04-18 00:00:00 +0000 UTC"
-		//fmt.Println(t)
-		//fmt.Println(t.Local())
-		//
 		//today := time.Now()
 		//bSix := t.AddDate(0, 6, 0)
 		//bThree := t.AddDate(0, 3, 0)
 		//bOne := t.AddDate(0, 1, 0)
-		//fmt.Println("aaaaaaaa")
 		//
 		////残り日数計算
 		//duration := t.Sub(today)
