@@ -22,8 +22,8 @@ let vm = new Vue({
                     backgroundColor: '#ff8080',
                 },
                 dates: [
-                    { start: new Date(2019, 0, 1), end: new Date(2019, 0, 5) },
-                    { start: new Date(2019, 0, 15), span: 5 } // # of days
+                    { start: new Date(2019, 10, 1), end: new Date(2019, 10, 5) },
+                    { start: new Date(2019, 10, 15), span: 5 } // # of days
                 ],
                 popover: {
                     label: 'メッセージを表示できます',
