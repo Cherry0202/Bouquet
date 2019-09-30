@@ -14,12 +14,22 @@ let vm = new Vue({
                 start: null,
                 end: null
             },
-            dates: [
-                { start: new Date(2018, 0, 1), end: new Date(2018, 0, 5) },
-                { start: new Date(2018, 0, 15), span: 5 } // # of days
-            ]
-        }
-    },
+        },
+        attrs: [
+            {
+                dates: [
+                    new Date(),
+                    {
+                        start: new Date(2019, 5, 1),
+                        end: new Date(2019, 5, 5)
+                    },
+                    {
+                        start: new Date(),
+                        span: 5
+                    }
+                ]
+            }
+        ],    },
     computed: {
         // 計算した結果を変数として利用したいときはここに記述する
     },
