@@ -22,7 +22,7 @@ let vm = new Vue({
     created: function() {
         // Vue.jsの読み込みが完了したときに実行する処理はここに記述する
         // APIにGETリクエストを送る
-        fetch(url + "/bouquet/user/calendar" +
+        fetch(url + "/bouquet/calendar" +
                 "?user_id=" + localStorage.getItem('user_id'), {
             method: "GET"
         })
