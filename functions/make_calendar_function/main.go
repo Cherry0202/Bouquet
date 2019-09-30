@@ -11,6 +11,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/guregu/dynamo"
 	"log"
+	"time"
 )
 
 var ginLambda *ginadapter.GinLambda
@@ -152,27 +153,26 @@ func init() {
 			})
 		} else {
 
-			//str := wedding.Wedding_day
-			////fmt.Println(str)
-			////str := "2019-01-01"
-			//layout := "2006-01-02"
-			//t, _ := time.Parse(layout, str)
-			//fmt.Println("#########################################")
-			//fmt.Println(str) // => "2003-04-18 00:00:00 +0000 UTC"
-			//fmt.Println(t)
-			//fmt.Println(t.Local())
-			//
-			//today := time.Now()
+			str := personal.Wedding_day
+			//fmt.Println(str)
+			//str := "2019-01-01"
+			layout := "2006-01-02"
+			t, _ := time.Parse(layout, str)
+			fmt.Println(str) // => "2003-04-18 00:00:00 +0000 UTC"
+			log.Println(t)
+			fmt.Println(t.Local())
+
+			today := time.Now()
 			//bSix := t.AddDate(0, 6, 0)
 			//bThree := t.AddDate(0, 3, 0)
 			//bOne := t.AddDate(0, 1, 0)
 			//fmt.Println("aaaaaaaa")
-			//
-			////残り日数計算
-			//duration := t.Sub(today)
-			//hours0 := int(duration.Hours())
-			//fmt.Println(hours0)
-			//days := hours0 / 24
+
+			//残り日数計算
+			duration := t.Sub(today)
+			hours0 := int(duration.Hours())
+			fmt.Println(hours0)
+			days := hours0 / 24
 
 			//目標体重まであと~
 			until_goal_weight := personal.Weight - personal.Goal_Weight
@@ -180,6 +180,8 @@ func init() {
 			res := Response{
 				User_name:         name.User_name,
 				Until_goal_weight: until_goal_weight,
+				Counting_days:     days,
+				Goal_weight:       personal.Goal_Weight,
 			}
 			c.JSON(200, res)
 		}
