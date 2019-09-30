@@ -7,8 +7,8 @@ let vc = new Vue({
                 dates: [
                     new Date(),
                     {
-                        start: new Date(2019, 10, 1),
-                        end: new Date(2019, 10, 5)
+                        start: new Date(2019, 9, 1),
+                        end: new Date(2019, 9, 5)
                     },
                     {
                         start: new Date(),
@@ -16,7 +16,8 @@ let vc = new Vue({
                     }
                 ]
             }
-        ],    },
+        ],
+    },
     computed: {
         // 計算した結果を変数として利用したいときはここに記述する
     },

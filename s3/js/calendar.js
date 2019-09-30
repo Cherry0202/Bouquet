@@ -14,6 +14,21 @@ let vm = new Vue({
                 start: null,
                 end: null
             },
+            attrs: [
+                {
+                    dates: [
+                        new Date(),
+                        {
+                            start: new Date(2019, 9, 1),
+                            end: new Date(2019, 9, 5)
+                        },
+                        {
+                            start: new Date(),
+                            span: 5
+                        }
+                    ]
+                }
+            ],
         }
     },
     computed: {
