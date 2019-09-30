@@ -4,31 +4,28 @@
 <head>
     <link rel="icon" href="./src/favicon.ico">
     <title>マイページ</title>
-    <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
+<!--    <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-<!--    <link rel="stylesheet" href="css/fullcalendar.min.css" media="all" />-->
     <link rel="stylesheet" href="css/style.css" media="all" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
     <link rel='stylesheet' href='https://unpkg.com/v-calendar/lib/v-calendar.min.css'>
-    <script src='https://unpkg.com/v-calendar@next'></script>
-<!--    <script type="text/javascript" src="js/fullcalendar.min.js"></script>-->
-    <script type="text/javascript" src="lang/ja.js"></script>
+    <script src='https://unpkg.com/v-calendar'></script>
 </head>
 
 <body>
     <div id="app">
-        <!-- <common-menu current="login"></common-menu> -->
         <div class="ui main container">
-            <div class="ui segment" v-model="users">
+            <div class="ui segment">
                 <!-- 基本的なコンテンツはここに記載する -->
                 <nav>
                     <ul>
                         <li class=”menu”><a href='column1.html'>二の腕</a></li>
                         <li><a href='column2.html'>背中</a></li>
                         <li><a href='column3.html'>ウエスト</a></li>
-                        <li><a href=column4.html>ヒップ</a></li>
-                        <li><a href=column4.html>顔</a></li>
-                        <li><a href=column5.html>有料コラム</a></li>
+                        <li><a href='column4.html'>ヒップ</a></li>
+                        <li><a href='column4.html'>顔</a></li>
+                        <li><a href='column5.html'>有料コラム</a></li>
                         <li><button class="ui primary white button delete_b" v-on:click="deleteUser">退会</button></li>
                     </ul>
                 </nav>
@@ -62,17 +59,23 @@
                                     </div>
                                     <br><br>
                                     <div class="ui checkbox">
-                                        <input type="checkbox" name="example">
+                                        <label>
+                                            <input type="checkbox" name="example">
+                                        </label>
                                         <label>ネイル</label>
                                     </div>
                                     <br><br>
                                     <div class="ui checkbox">
-                                        <input type="checkbox" name="example">
+                                        <label>
+                                            <input type="checkbox" name="example">
+                                        </label>
                                         <label>マツエク</label>
                                     </div>
                                     <br><br>
                                     <div class="ui checkbox">
-                                        <input type="checkbox" name="example">
+                                        <label>
+                                            <input type="checkbox" name="example">
+                                        </label>
                                         <label>結婚式の招待状</label>
                                     </div>
                                     <div class="count">
@@ -88,18 +91,16 @@
                             </div>
                         </ul>
                     </div>
-                    <div class="twelve wide column" id="calendar">
-<!--                        <v-calendar  is-expanded :rows="2"/>-->
-                        <v-calendar is-expanded :rows="2"></v-calendar>
+                    <div class="twelve wide column">
+                        <v-calendar is-expanded :rows="2" />
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <script src="./common/menu.js" charset="utf-8"></script> -->
         <script src="./common/config.js" charset="utf-8"></script>
         <script src="./js/calendar.js" charset="utf-8"></script>
-        <script src="./js/v-calender.js" charset="utf-8"></script>
+<!--        <script src="./js/v-calender.js" charset="utf-8"></script>-->
 </body>
 
 </html>
