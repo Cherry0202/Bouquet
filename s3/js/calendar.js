@@ -32,7 +32,7 @@ let vm = new Vue({
             {
                 dot: 'red',
                 dates: {
-                    start: new Date('11/18/2019'),
+                    start: new Date(vm.users.wedding_day),
                     monthlyInterval: 2,           // Every other month
                     ordinalWeekdays: { [-1]: 6 }  // ...on the last Friday
                 },
@@ -82,7 +82,7 @@ let vm = new Vue({
                 // console.log("goal_weight");
                 // console.log(json.goal_weight);
                 vm.users = json;
-                console.log(vm.users.wedding_day);
+                // console.log(vm.users.wedding_day);
                 // let div_weight = Number(json.weight) - Number(json.goal_weight);
                 // let wedding_day_s = localStorage.getItem('wedding_day');
                 // let wedding_day = new Date(wedding_day_s);
