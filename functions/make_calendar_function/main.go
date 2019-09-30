@@ -72,10 +72,10 @@ type Salon_consideration struct {
 //}
 
 type Response struct {
-	User_name          string `json:"user_name"`
-	Height             int    `json:"height"`
-	Goal_weight        int    `json:"goal_weight"`
-	Weight             int    `json:"weight"`
+	User_name   string `json:"user_name"`
+	Height      int    `json:"height"`
+	Goal_weight int    `json:"goal_weight"`
+	//Weight             int    `json:"weight"`
 	Until_goal_weight  int    `json:"until_goal_weight"`
 	Position           string `json:"position"`
 	Counting_days      int    `json:"counting_days"`
@@ -152,21 +152,21 @@ func init() {
 				"request": qs,
 			})
 		} else {
-
-			str := personal.Wedding_day
-			//fmt.Println(str)
-			//str := "2019-01-01"
-			layout := "2006-01-02"
-			t, _ := time.Parse(layout, str)
-			fmt.Println(str) // => "2003-04-18 00:00:00 +0000 UTC"
-			log.Println(t)
-			fmt.Println(t.Local())
-
-			today := time.Now()
+			//現在の日付を取得
+			jst, _ := time.LoadLocation("Asia/Tokyo")
+			today := time.Now().In(jst)
+			log.Print(today, "現在時刻")
 			//bSix := t.AddDate(0, 6, 0)
 			//bThree := t.AddDate(0, 3, 0)
 			//bOne := t.AddDate(0, 1, 0)
 			//fmt.Println("aaaaaaaa")
+
+			str := personal.Wedding_day
+			const layout = "2006-01-02"
+			t, _ := time.Parse(layout, str)
+			log.Print("↓")
+			log.Println(t)
+			fmt.Println(t.Local())
 
 			//残り日数計算
 			duration := t.Sub(today)
