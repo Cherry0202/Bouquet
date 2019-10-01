@@ -19,29 +19,67 @@ let vm = new Vue({
             {
                 key: 'today',
                 highlight: {
-                    backgroundColor: 'pink',
+                    backgroundColor: true,
                 },
                 dates: [
-                    { start: new Date(2019, 10-1, 1), end: new Date(2019, 10-1, 5) },
-                    { start: new Date(2019, 10, 15), span: 5 } // # of days
+                    { start: new Date(), end: new Date(2019, 10-1, 8) },
                 ],
                 popover: {
-                    label: 'メッセージを表示できます',
+                    label: 'ブライダルエステ開始',
                 },
             },
             {
-                dot: 'red',
-                dates: {
-                    start: new Date(vm.users.wedding_day),
-                    monthlyInterval: 2,           // Every other month
-                    ordinalWeekdays: { [-1]: 6 }  // ...on the last Friday
+                key: 'today',
+                highlight: {
+                    backgroundColor: true,
                 },
+                dates: [
+                    {start: new Date(2019, 10 - 1, 15), end: new Date(2019, 10 - 1, 22)},
+                ],
                 popover: {
-                    label: 'hoge',
+                    label: 'ホワイトニング開始',
+                },
+            },
+            {
+                highlight: {
+                    backgroundColor: true,
+                },
+                dates: [
+                    { start: new Date(2019,11-1,1), end: new Date(2019, 11-1, 8) },
+                ],
+                popover: {
+                    label: 'ネイル・マツエクサロンの検討・予約/ヘアメイクリハーサル',
+                },
+            },
+            {
+                highlight: {
+                    backgroundColor: true,
+                },
+                dates: [
+                    { start: new Date(2019,12-1,1), end: new Date(2019, 12-1, 7) },
+                ],
+                popover: {
+                    label: 'ネイル・マツエクの実施',
                 },
 
+            },
+            {
+                dot: 'red',
+                highlight: {
+                    backgroundColor: true,
+                },
+                dates: [
+                    new Date(2019,12-1,8),
+                ],
+                popover: {
+                    label: 'Happy' +
+                        ' Wedding!!',
+                },
             }
-        ],    },
+
+
+        ],
+    },
     computed: {
         // 計算した結果を変数として利用したいときはここに記述する
     },
