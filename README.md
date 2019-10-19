@@ -1,4 +1,4 @@
-# Summer Intern Template Project
+# BouquetProject
 
 # 環境構築
 
