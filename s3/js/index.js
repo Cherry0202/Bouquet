@@ -40,7 +40,7 @@ let vm = new Vue({
                 fetch(url + "/bouquet/user/login", {
                     method: "POST",
                     body: JSON.stringify({
-                        "user_id": vm.user_id,
+                        "user_id": vm.user.user_id,
                         "password": vm.user.password
                     })
                 })
@@ -111,7 +111,6 @@ let vm = new Vue({
                         console.log(err);
                         return false;
                     });
-
             }
         }
     }
